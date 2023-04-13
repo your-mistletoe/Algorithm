@@ -1,9 +1,10 @@
 def solution(elements):
     result = set()
-    e = elements * 2
-    
-    for i in range(len(elements)):
-        for j in range(len(elements)):
-            result.add(sum(e[j:j+i+1]))
 
-    return len(result)
+    for i in range(len(elements)):
+        value = elements[i]
+        result.add(value)
+        for j in range(i+1, i+len(elements)):
+            value += elements[j % len(elements)]
+            result.add(value)
+    return len(result)   
