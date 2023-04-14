@@ -2,12 +2,10 @@ def solution(k, score):
     q = []
     result = []
     
-    for i in range(len(score)):
-        q.append(score[i])
-        if i < k:
-            result.append(min(q))
-        else:
-            q.sort()
-            result.append(q[-k])
+    for i in score:
+        q.append(i)
+        if len(q) > k:
+            q.remove(min(q))        
+        result.append(min(q))
     
     return result
