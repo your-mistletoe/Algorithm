@@ -16,6 +16,5 @@ def solution(s):
         else:
             if len(s) - i <  2:
                 arr.append(s[pivot:len(s)-1])
-        
-    print(arr)
+
     return len(arr)
