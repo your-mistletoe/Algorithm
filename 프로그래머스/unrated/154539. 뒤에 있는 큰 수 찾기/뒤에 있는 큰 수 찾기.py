@@ -7,3 +7,4 @@ def solution(numbers):
             result[stack.pop()] = v
         stack.append(i)
     return result
+
