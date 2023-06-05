@@ -1,30 +1,20 @@
-n = int(input())
-arr = [0] * n
+import sys
+n = int(sys.stdin.readline())
 stack = []
-command = ['push', 'pop', 'size', 'empty', 'top']
 
-for i in range(n):
-    arr[i] = input()
+for _ in range(n):
+    command = sys.stdin.readline().split()
 
-for j in arr:
-    if len(j) > 5:
-        c, v = j.split(' ')
-        if c == command[0]:
-            stack.append(v)
-    elif j == command[1]:
-        if stack:
-            print(stack.pop())
-        else:
-            print('-1')
-    elif j == command[2]:
+    if command[0] == 'push':
+        stack.append(command[1])
+    elif command[0] == 'pop':
+        if stack: print(stack.pop())
+        else: print('-1')
+    elif command[0] == 'size':
         print(len(stack))
-    elif j == command[3]:
-        if stack:
-            print('0')
-        else:
-            print('1')
-    else:
-        if stack:
-            print(stack[-1])
-        else:
-            print('-1')
+    elif command[0] == 'empty':
+        if stack: print(0)
+        else: print(1)
+    elif command[0] == 'top':
+        if stack: print(stack[-1])
+        else: print('-1')
